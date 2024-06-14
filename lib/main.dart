@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'database_helper.dart';
 import 'meditationplayerscreen.dart';
+import 'dart:math';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -209,16 +210,53 @@ class MeditationScreen extends StatelessWidget {
   }
 }
 
-class PlaceholderScreen extends StatelessWidget {
+class PlaceholderScreen extends StatefulWidget {
+  @override
+  _PlaceholderScreenState createState() => _PlaceholderScreenState();
+}
+
+class _PlaceholderScreenState extends State<PlaceholderScreen> {
+  final List<String> _texts = [
+    'Acredite em você!',
+    'Nunca desista dos seus sonhos.',
+    'A persistência é o caminho do êxito.',
+    'O sucesso é a soma de pequenos esforços repetidos dia após dia.',
+    'Você é mais forte do que imagina.',
+  ];
+
+  String _displayedText = 'Pressione o botão para uma mensagem motivacional!';
+
+  void _showRandomText() {
+    final random = Random(); // Uso da classe Random da biblioteca dart:math
+    setState(() {
+      _displayedText = _texts[random.nextInt(_texts.length)];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela de Exemplo'),
+        title: Text('MOTIVAÇÃO'),
       ),
       body: Center(
-        child: Text('Substitua este conteúdo pela sua própria tela.'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              _displayedText,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 24),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _showRandomText,
+              child: Text('Mostrar Mensagem'),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
