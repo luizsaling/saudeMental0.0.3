@@ -227,7 +227,7 @@ class _PlaceholderScreenState extends State<PlaceholderScreen> {
   String _displayedText = 'Pressione o botão para uma mensagem motivacional!';
 
   void _showRandomText() {
-    final random = Random(); // Uso da classe Random da biblioteca dart:math
+    final random = Random();
     setState(() {
       _displayedText = _texts[random.nextInt(_texts.length)];
     });
@@ -259,4 +259,3 @@ class _PlaceholderScreenState extends State<PlaceholderScreen> {
     );
   }
 }
-
