@@ -212,10 +212,10 @@ class MeditationScreen extends StatelessWidget {
 
 class PlaceholderScreen extends StatefulWidget {
   @override
-  _PlaceholderScreenState createState() => _PlaceholderScreenState();
+  PlaceholderScreenState createState() => PlaceholderScreenState();
 }
 
-class _PlaceholderScreenState extends State<PlaceholderScreen> {
+class PlaceholderScreenState extends State<PlaceholderScreen> {
   final List<String> _texts = [
     'Acredite em você!',
     'Nunca desista dos seus sonhos.',
@@ -224,7 +224,7 @@ class _PlaceholderScreenState extends State<PlaceholderScreen> {
     'Você é mais forte do que imagina.',
   ];
 
-  String _displayedText = 'Pressione o botão para uma mensagem motivacional!';
+  String _displayedText = 'Pressione para sentir-se MELHOR!';
 
   void _showRandomText() {
     final random = Random();
@@ -251,7 +251,7 @@ class _PlaceholderScreenState extends State<PlaceholderScreen> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: _showRandomText,
-              child: Text('Mostrar Mensagem'),
+              child: Text('#CONFIA!'),
             ),
           ],
         ),
